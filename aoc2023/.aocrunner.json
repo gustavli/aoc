@@ -1,34 +1,34 @@
 {
   "version": 1,
-  "year": 2017,
+  "year": 2023,
   "language": "ts",
   "days": [
     {
       "part1": {
-        "solved": false,
-        "result": "1034",
+        "solved": true,
+        "result": "56042",
         "attempts": [],
-        "time": 0.063542
+        "time": 0.973959
       },
       "part2": {
-        "solved": false,
-        "result": "1356",
+        "solved": true,
+        "result": "55358",
         "attempts": [],
-        "time": 0.055417
+        "time": 8.688083
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "47136",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 2.221792
+        "time": null
       },
       "part2": {
         "solved": false,
-        "result": "24",
+        "result": null,
         "attempts": [],
-        "time": 0.115125
+        "time": null
       }
     },
     {

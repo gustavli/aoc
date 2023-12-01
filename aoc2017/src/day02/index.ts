@@ -10,15 +10,17 @@ const part1 = (rawInput: string) => {
 
   var sum = 0;
   lines.forEach((line) => {
-    var min = -1;
-    var max = -1;
+    var values = line.split("\t").map(Number);
+    var min = values.reduce((previousValue, currentValue) => {
+      return Math.min(previousValue, currentValue);
+    });
+    var max = values.reduce((previousValue, currentValue) => {
+      return Math.max(previousValue, currentValue);
+    });
 
-    var values = line.split("\t");
-    console.log(values.length + " values");
     values.forEach((value) => {
-      var val: number = parseInt(value);
-      if (min === -1 || val < min) min = val;
-      if (max === -1 || val > max) max = val;
+      if (min === -1 || value < min) min = value;
+      if (max === -1 || value > max) max = value;
     });
     sum += max - min;
   });
@@ -28,7 +30,30 @@ const part1 = (rawInput: string) => {
 
 const part2 = (rawInput: string) => {
   const input = parseInput(rawInput);
-  return;
+
+  const lines = input.split("\n");
+  console.log(lines.length + " lines");
+
+  var sum = 0;
+  lines.forEach((line) => {
+    var values = line.split("\t").map(Number);
+
+    var div: number = 0;
+    values.forEach((val, idx) => {
+      var next = values[idx + 1];
+      if ((val / next) % 2 === 0) {
+        div = val / next;
+        return;
+      } else if ((next / val) % 2 === 0) {
+        div = next / val;
+        return;
+      }
+    });
+
+    sum += div;
+  });
+
+  return sum;
 };
 
 run({
