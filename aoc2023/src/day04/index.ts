@@ -23,13 +23,11 @@ const parseInput = (rawInput: string): Card[] => {
 };
 
 const part1 = (rawInput: string) => {
-  const start = performance.now()
   const cards = parseInput(rawInput);
-  const end = performance.now()
 
   var points = 0;
 
-  cards.forEach((card, idx) => {
+  cards.forEach((card) => {
     var common = card.yourNumbers.filter(num => card.winning.includes(num)).length
     points += common > 0 ? Math.pow(2, common - 1) : 0
   })
@@ -47,7 +45,6 @@ const part2 = (rawInput: string): number => {
     cards.slice(idx + 1, idx + matchingNumbers + 1).forEach(card2 => {
       card2.copies += card.copies;
     })
-
     wonCards += card.copies
   })
 
